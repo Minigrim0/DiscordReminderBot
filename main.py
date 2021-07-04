@@ -1,5 +1,6 @@
 import os
 import django
+from web.app import app
 
 # Django specific settings
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "src.settings")
@@ -22,6 +23,7 @@ def main():
     client = Bert.getInstance()
     ReminderCog.getInstance()  # Start the cog
 
+    client.loop.create_task(app.run_task('0.0.0.0'))
     client.run(API_KEY)
 
 

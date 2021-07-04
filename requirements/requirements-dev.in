@@ -1,0 +1,4 @@
+pip-tools
+flake8
+black
+rope
